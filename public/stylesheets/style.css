@@ -1,0 +1,173 @@
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+}
+
+.error {
+	background-image: url('http://weknowyourdreams.com/images/cloud/cloud-04.jpg');
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 900;
+}
+
+.logo {
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.logo-image {
+	font-family: 'Playfair Display', serif;
+	font-weight: 900;
+	margin: 0 auto;
+	background: -webkit-linear-gradient(left, #BF004F, #001da3);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+a {
+	color: #282828;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	color: #e0e0e0;
+}
+
+a.delete-edit {
+	float: right;
+	margin-left: 2rem;
+	cursor: pointer;
+}
+
+.navbar {
+	padding: 1.25rem;
+	margin: 0;
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+	background-color: #000000;
+	opacity: 0.9;
+	width: 100%;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	-webkit-transform: translateZ(0);
+}
+
+.navbar-unauth {
+	padding: 1.25rem;
+	margin: 0;
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+	background: -webkit-linear-gradient(left, #BF004F, #001da3);
+	width: 100%;
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	-webkit-transform: translateZ(0);
+}
+
+.navbar-link-container {
+	margin: 0 1.25rem;
+	display: inline-block;
+}
+
+.navbar-link-container a {
+	color: #ffffff;
+}
+
+.navbar-right {
+	float: right;
+	margin-right: 2rem;
+}
+
+.login-title {
+	text-align: center;
+	margin: 0 auto 10% auto;
+}
+
+.login-form {
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+.title {
+	margin: 0 auto 2rem auto;
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+}
+
+.tag {
+	color: #4203af;
+}
+
+.main {
+	margin: 8rem auto 0 auto;
+	width: 70vw;
+}
+
+.post {
+	border-top: 2px solid #ededed;
+	padding-top: 1rem;
+	margin: 2rem auto 3rem auto;
+}
+
+form {
+	border-top: 2px solid #ededed;
+}
+
+input {
+	display: block;
+	width: 100%;
+	padding: 0.5rem 0;
+	margin: 0.5rem 0 1.5rem 0;
+	border: none;
+	font-size: 16px;
+	background-color: #ededed;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+	margin: 0.5rem 0 1.5rem 0;
+	padding: 0.5rem 0;
+	border: none;
+	height: 6rem;
+	font-size: 16px;
+	background-color: #ededed;
+}
+
+button {
+	border: 2px solid;
+	padding: 0.5rem;
+	font-size: 16px;
+	color: #4203af;
+	background-color: white;
+	margin: 0 auto 2rem auto;
+}
+
+button:hover {
+	cursor: pointer;
+	color: #e0e0e0;
+}
+
+button:disabled {
+	cursor: pointer;
+	color: #e0e0e0;
+}
+
+.oops: {
+	color: #ed0043;
+}
+
+.oauth {
+	margin-bottom: 2rem;
+}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="post">
+  	<h2>{{ poem.title }}</h2>
+  	<p><i>Posted by {{ user.fullName }}</i></p>
+  	<p>{{ poem.text }}</p>
+  	<p><i>{{ poem.dateCreated }}</i></p>
+  	<p>
+  		{% set comma = joiner() %}
+  		{% for tag in poem.tags -%}
+  		{{ comma() }}
+  		<a class="tag" href="/poem/search/{{ tag }}">{{ tag }}</a>
+  		{%- endfor %}
+  	</p>
+    <a class="delete-edit" href="delete/{{ poem.id }}">Delete</a>
+    <a class="delete-edit" href="edit/{{ poem.id }}">Edit</a>
+  </div>
+
+{% endblock %}

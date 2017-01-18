@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<form method="POST">
+    <h2>Edit User</h2>
+  	<label for="username">Username</label>
+  	<input type="text" name="username" value="{{ user.username }}"/>
+
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName" value="{{ user.firstName }}"/>
+
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName" value="{{ user.lastName }}"/>
+
+  	<label for="email">Email</label>
+    <input type="email" name="email" value="{{ user.email }}"/>
+
+  	<!-- To-do: add save draft feature -->
+  	<button>Submit</button>
+	</form>
+    
+{% endblock %}

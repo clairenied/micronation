@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  {% for poem in poems %}
+
+  <div class="post">
+    <h2><a href="/poem/{{ poem.id }}">{{ poem.title }}</a></h2>
+    <p><i>{{ poem.user.username }}</i></p>
+    <p>{{ poem.text }}</p>
+    <p><i>{{ poem.dateCreated }}</i></p>
+    <p>
+      {% set comma = joiner() %}
+      {% for tag in poem.tags -%}
+      {{ comma() }}
+      <a class="tag" href="/poem/search/{{ tag }}">{{ tag }}</a>
+      {%- endfor %}
+    </p>
+  </div>
+
+  {% endfor %}
+    
+{% endblock %}

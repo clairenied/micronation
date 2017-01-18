@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<form method="POST">
+    <h2>Poem</h2>
+  	<label for="username">Username</label>
+  	<input type="text" name="username"/>
+
+  	<label for="title">Title</label>
+  	<input type="text" name="title"/>
+
+  	<label for="Text">Poem</label>
+  	<textarea name="text"></textarea>
+
+  	<label for="tags">Tags</label>
+  	<input type="text" name="tags"/>
+
+  	<!-- To-do: add save draft feature -->
+  	<button>Submit</button>
+	</form>
+    
+{% endblock %}
