@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-
-const microDb = new Sequelize('postgres://localhost:5432/microDb', {})
+const config = require('../config')
+const microDb = new Sequelize(config.db, {})
 
 module.exports = microDb

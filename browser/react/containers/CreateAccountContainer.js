@@ -4,8 +4,7 @@ import { Link } from 'react-router'
 
 import validator from 'validator'
 
-import { createUser } from '../action-creators/users'
-import NavbarUnauthorized from '../components/NavbarUnauthorized'
+import { createUser } from '../reducers/auth'
 
 class CreateAccount extends React.Component {
   constructor(props){
@@ -43,7 +42,6 @@ class CreateAccount extends React.Component {
   render(){
     return(
     	<div>
-	    	<NavbarUnauthorized />
 	      <div className="login-form">
 	        <form onSubmit={this.handleSubmit}>
 	          <h2>Create Account</h2>
@@ -97,12 +95,6 @@ class CreateAccount extends React.Component {
 							<button disabled="true" type="submit">Create Account</button> }
 
 	          <div className="buffer oauth">
-		          <a target="_self"
-		             href="/auth/google"
-		             className="button">
-		          <span>Or, Create Account with Google</span>
-		          </a>
-		          <span> | </span>
 			        <Link to="/login"><span> Have an Account Already? </span></Link>
 		        </div>
 

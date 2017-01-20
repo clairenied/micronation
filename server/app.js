@@ -1,32 +1,36 @@
 const express = require('express');
 const app = express();
+
+const server = require('http').createServer(app);
+require('./sockets').setIO(server);
+
+
 const chalk = require('chalk')
 const path = require('path')
+
+const microDb = require('./models')
+const Message = require('./models/message')
+const User = require('./models/user')
 
 const { generateImage } = require('random-ascii-image-generator')
 
 const morgan = require('morgan');
-const nunjucks = require('nunjucks');
 
 const bodyParser = require('body-parser');
 const routes = require('./routes/');
 
-const poemDb = require('./models')
-
 app.use(morgan('tiny'));
 
-// body parser for form input
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/', express.static('public'))
 
-
-microDb.sync({ 
-	// force: true 
+microDb.sync({
+  // force: true
 })
 .then(function () {
-  app.listen(3000, function () {
+  server.listen(3000, function () {
   	generateImage()
   	console.log(chalk.green('App listening on port 3000'))
   });

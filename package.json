@@ -47,6 +47,8 @@
     "request": "^2.79.0",
     "sequelize": "^3.25.0",
     "sessions": "0.0.2-7",
+    "socket.io": "^1.7.2",
+    "socket.io-client": "^1.7.2",
     "validator": "^6.2.0",
     "webpack": "^1.13.3"
   },

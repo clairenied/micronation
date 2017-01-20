@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
-
+const config = require('../config');
 const cookieParser = require('cookie-parser');
 const User = require('../models/user');
 
 const session = require('express-session');
+const pgSession = require('connect-pg-simple')(session);
+const pg = require('pg');
+
 const passport = require('passport')
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -13,7 +16,11 @@ const LocalStrategy = require('passport-local').Strategy;
 router.use(session({
   secret: 'secret llama time',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new pgSession({
+    pg: pg,
+    conString: config.db,
+  }),
 }));
 
 

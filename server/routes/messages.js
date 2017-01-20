@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Promise = require('bluebird')
+const chalk = require('chalk')
+const sockets = require('../sockets')
 
 const Message = require('../models/message')
 const User = require('../models/user')
@@ -10,9 +12,8 @@ router.use(require('../middleware/authenticationMiddleware'));
 
 router.get('/', function(req, res, next){
   Message.findAll({
-  	where: req.query,
-  	limit: 10,
-  	order: '"updatedAt" DESC',
+  	limit: 30,
+  	order: [['updatedAt']],
     include: [User]
   })
   .then(messages => res.json(messages))
@@ -20,12 +21,12 @@ router.get('/', function(req, res, next){
 })
 
 router.post('/', (req, res, next) => {
-  let userPromise = User.findById(req.user.id)
-  let messagePromise = Message.create(req.body)
-
-  Promise.all([userPromise, messagePromise])
-  .spread((user, message) => message.setUser(user))
-  .then(message => res.json(message))
+  req.body.userId = req.user.id;
+  Message.create(req.body)
+  .then(message => {
+    console.log(chalk.blue(message))
+    return res.json(message)
+  })
   .catch(next)
 });
 

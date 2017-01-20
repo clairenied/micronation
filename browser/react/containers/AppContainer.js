@@ -3,10 +3,7 @@ import App from '../components/App'
 
 
 const mapStateToProps = (state, ownProps) => {
-	return {
-		poems: state.poems,
-		user: state.user
-	}
+	return {}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

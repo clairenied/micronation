@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const microDb = require('./db');
+const sockets = require('../sockets')
 
 const bcrypt = require('bcrypt')
 
@@ -56,6 +57,9 @@ var userConfig = {
 		beforeUpdate: function(user){
 			if(user.changed('password')) { return }
 			return user.hashPassword()
+		},
+		afterCreate: function(user){
+			return sockets.io.emit('set-user', user)
 		}
 	},
 	getterMethods: {

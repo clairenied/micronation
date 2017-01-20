@@ -1,4 +1,4 @@
-const poemDb = require('./db');
+const microDb = require('./db');
 
 const User = require('./user');
 const Message = require('./message');
@@ -7,7 +7,7 @@ User.hasMany(Message)
 Message.belongsTo(User)
 
 
-module.exports = poemDb;
+module.exports = microDb;
 
 
 // Hello, I am a many to many relationship 	  *!!!!!REMEMBER NO CAMEL CASE!!!!!!*

@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 import validator from 'validator'
 
-import { loginUser, loginUserWithGoogle } from '../action-creators/users'
-import NavbarUnauthorized from '../components/NavbarUnauthorized'
+import { loginUser } from '../reducers/auth'
 
 class LoginForm extends React.Component {
 	constructor(props){
@@ -40,11 +39,10 @@ class LoginForm extends React.Component {
 	render(){
 		return(
 			<div>
-				<NavbarUnauthorized />
 				<div className="login-form">
 					<div className="login-title">
 						<div className="logo-image">
-							<h1>(&ensp;poem&ensp;)&#123;&ensp;generator&ensp;&#125;&#59;</h1>
+							<h1>Welcome to Pilandia!</h1>
 						</div>
 					</div>
 					
@@ -75,13 +73,7 @@ class LoginForm extends React.Component {
 							<button disabled="true" type="submit">Login</button> }
 						
 						<div className="buffer oauth">
-		          <a target="_self"
-			          href="/api/sessions/auth/google"
-	             	className="button">
-			          <span>Or, Login with Google</span>
-		          </a>
-		          <span> | </span>
-			        <Link to="/create-account"><span> No account?</span></Link>
+			        <Link to="/create-account"><span>Or, become a citizen!</span></Link>
 		        </div>
 					</form>
 				</div>
@@ -96,8 +88,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		loginUser: (email, password) => { dispatch(loginUser(email, password)) },
-		loginUserWithGoogle: () => { dispatch(loginUserWithGoogle() )}
+		loginUser: (email, password) => { 
+			dispatch(loginUser(email, password))
+			browserHistory.push('/messages') 
+		},
 	}
 }
 
