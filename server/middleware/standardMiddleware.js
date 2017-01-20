@@ -84,25 +84,6 @@ passport.use('local', new LocalStrategy(
   }
 ));
 
-// passport.use(new (require('passport-local').Strategy) (
-//   (email, password, done) => {
-//     User.findOne({where: { email }})
-//     .then(user => {
-//       if (!user) {
-//         return done(null, false, { message: 'Login incorrect' })
-//       }
-//       return user.authenticate(password)
-//         .then(ok => {
-//           if (!ok) {
-//             return done(null, false, { message: 'Login incorrect' })
-//           }
-//           done(null, user)              
-//         })
-//     })
-//     .catch(done)
-//   }
-// ))
-
 router.use(passport.initialize());
 router.use(passport.session());
 

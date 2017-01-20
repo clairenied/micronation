@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use('/', express.static('public'))
 
 microDb.sync({
-  // force: true
+  force: true
 })
 .then(function () {
   server.listen(3000, function () {
