@@ -41,7 +41,7 @@ class CreateAccount extends React.Component {
 
   render(){
     return(
-    	<div>
+    	<div className="container">
 	      <div className="login-form">
 	        <form onSubmit={this.handleSubmit}>
 	          <h2>Create Account</h2>

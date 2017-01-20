@@ -36,7 +36,7 @@ class Messages extends React.Component {
     let users = this.props.users
 
     return(
-      <div>
+      <div className="container">
         <NavbarContainer/>
         <div className="logo-image">
           <h1>Welcome to Pilandia!</h1>

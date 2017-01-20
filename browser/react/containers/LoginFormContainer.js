@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
 
 	render(){
 		return(
-			<div>
+			<div className="container">
 				<div className="login-form">
 					<div className="login-title">
 						<div className="logo-image">
