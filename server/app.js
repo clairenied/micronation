@@ -8,7 +8,7 @@ require('./sockets').setIO(server);
 const chalk = require('chalk')
 const path = require('path')
 
-const microDb = require('./models')
+const microdb = require('./models')
 const Message = require('./models/message')
 const User = require('./models/user')
 
@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 app.use('/', express.static('public'))
 
-microDb.sync({
+microdb.sync({
   force: true
 })
 .then(function () {

@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const microDb = require('./db');
+const microdb = require('./db');
 const sockets = require('../sockets')
 
 const bcrypt = require('bcrypt')
@@ -68,6 +68,6 @@ var userConfig = {
 		}
 	}
 }
-var User = microDb.define('user', userSchema, userConfig)
+var User = microdb.define('user', userSchema, userConfig)
 
 module.exports = User

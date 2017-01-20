@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const microDb = require('./db');
+const microdb = require('./db');
 const sockets = require('../sockets')
 const chalk = require('chalk')
 
@@ -22,6 +22,6 @@ var messageConfig = {
   }
 }
 
-var Message = microDb.define('message', messageSchema, messageConfig)
+var Message = microdb.define('message', messageSchema, messageConfig)
 
 module.exports = Message

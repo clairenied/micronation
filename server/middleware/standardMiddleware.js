@@ -20,6 +20,7 @@ router.use(session({
   store: new pgSession({
     pg: pg,
     conString: config.db,
+    tableName: "session",
   }),
 }));
 
