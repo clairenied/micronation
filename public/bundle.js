@@ -31086,6 +31086,9 @@
 	        dispatch((0, _messages.getAllMessages)());
 	        dispatch(setAuth(res.data));
 	      }
+	    }).catch(function (err) {
+	      _reactRouter.browserHistory.push('/login');
+	      return dispatch(setAuth(null));
 	    });
 	  };
 	};
@@ -31107,10 +31110,10 @@
 	var getUser = exports.getUser = function getUser() {
 	  return function (dispatch) {
 	    return _axios2.default.get('/api/sessions/whoami').then(function (res) {
-	      if (!res.data) {
-	        return _reactRouter.browserHistory.push('/login');
-	      }
 	      return dispatch(setAuth(res.data));
+	    }).catch(function (err) {
+	      _reactRouter.browserHistory.push('/login');
+	      return dispatch(setAuth(null));
 	    });
 	  };
 	};

@@ -22,9 +22,10 @@ router.post('/local-login', (req, res, next) =>
 	})(req, res, next)
 );
 
-router.get('/whoami', (req, res, next) =>
+router.get('/whoami', (req, res, next) => {
+  if(!req.user) res.sendStatus(403)
   res.send(req.user)
-)
+})
 
 // log out
 router.post('/logout', (req, res, next) => {

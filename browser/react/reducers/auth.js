@@ -45,6 +45,10 @@ export const loginUser = (email, password) => {
         dispatch(setAuth(res.data))
       }
     })
+    .catch(err => {
+      browserHistory.push('/login')
+      return dispatch(setAuth(null))
+    })
   }
 }
 
@@ -67,8 +71,11 @@ export const getUser = () => {
   return dispatch => {
     return axios.get('/api/sessions/whoami')
     .then(res => { 
-      if (!res.data){ return browserHistory.push('/login')}
       return dispatch(setAuth(res.data)) 
+    })
+    .catch(err => {
+      browserHistory.push('/login')
+      return dispatch(setAuth(null))
     })
   }
 }
