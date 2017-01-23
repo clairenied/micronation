@@ -26,9 +26,7 @@ app.use(bodyParser.json());
 
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
 
-microDb.sync({
-  // force: true
-})
+microDb.sync()
 .then(function () {
   server.listen(3000, function () {
   	generateImage()
