@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
 
 microDb.sync({
-  force: true
+  // force: true
 })
 .then(function () {
   server.listen(3000, function () {
