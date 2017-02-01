@@ -32681,8 +32681,8 @@
 	
 	var subscribeToNewMessages = exports.subscribeToNewMessages = function subscribeToNewMessages() {
 	  return function (dispatch) {
-	    return _socket2.default.on('new-message', function (message, user) {
-	      console.log('MESSAGE!!!', message, user);
+	    return _socket2.default.on('new-message', function (message) {
+	      console.log('MESSAGE!!!', message);
 	      return dispatch(setMessage(message));
 	    });
 	  };

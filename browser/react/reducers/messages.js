@@ -32,7 +32,6 @@ const setMessage = (message) =>
 		})
 	}
 
-
 export const setAllMessages = (allMessages) => {
 	return dispatch => {
     return allMessages.forEach(message => {
@@ -43,8 +42,8 @@ export const setAllMessages = (allMessages) => {
 
 export const subscribeToNewMessages = () =>
   dispatch =>
-    socket.on('new-message', (message, user) => {
-    	console.log('MESSAGE!!!', message, user)
+    socket.on('new-message', (message) => {
+    	console.log('MESSAGE!!!', message)
     	return dispatch(setMessage(message))
     });
 
